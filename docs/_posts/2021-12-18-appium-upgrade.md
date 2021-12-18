@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Appium upgrade to 2.X!"
+title:  "Notes for Appium upgrade to 2.X!"
 date:   2021-12-18 19:03:38 +0800
 categories: appium update
 ---
