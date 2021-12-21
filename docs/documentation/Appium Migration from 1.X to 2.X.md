@@ -50,18 +50,33 @@ permalink: /appium/
     response = self.execute(RemoteCommand.NEW_SESSION, parameters)
 /Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:424: in execute
     self.error_handler.check_response(response)`
+
     root cause: appium2.X的wd/hub已经被移除
     solution: appium2.X server的启动命令中，添加--base-path
 
     > $appium  --base-path /wd/hub
 
-3. E       AttributeError: can't set attribute
+3. E      pluggy._manager.PluginValidationError: unknown hook 'pytest_namespace' in plugin 
+	root cause: 升级了pytest到6.2.5 (platform darwin -- Python 3.9.1, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+plugins: allure-pytest-2.5.0)
+	solution: 降级到python3.6.5后，(platform darwin -- Python 3.6.5, pytest-3.6.3, py-1.8.0, pluggy-0.6.0
+	plugins: cov-2.8.1, celery-4.2.1, allure-pytest-2.5.0)就没有这个问题了，会有一个post专门写
 
-/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:140: AttributeError
-	root cause: 不是很清楚
-	solution: 降级到python3.6.5后，就没有这个问题了
 
 
+4. cap需要改成dict:
+caps = dict(
+            platformName='iOS',
+            platformVersion=iosversion,
+            deviceName=iosdevice,
+            automationName='XCUITest',
+            app=ipapath
+            # # 'noReset': 'true',
+            # 'noReset': 'false',
+            # 'keepKeyChains': 'true',
+            # # 'bundleId':'com.upwlabs.glowdev',
+            # # 'updatedWDABundleId':'com.test.webdriveragent',
+            # 'newCommandTimeout': 15)
 
 
 
