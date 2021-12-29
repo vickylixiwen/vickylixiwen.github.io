@@ -98,7 +98,7 @@ caps = dict(
 
 
 
-####### misc error:
+##### misc error:
 python3.9的venv
 `(pycharm3.9.1) vicky@Vickys-MBP ui % pytest --Platform iOS -m smoke5 -s
 zsh: /usr/local/bin/pytest: bad interpreter: /usr/local/opt/python/bin/python3.7: no such file or directory
@@ -106,5 +106,16 @@ zsh: /usr/local/bin/pytest: bad interpreter: /usr/local/opt/python/bin/python3.7
 platform darwin -- Python 3.9.1, pytest-3.6.3, py-1.11.0, pluggy-0.6.0
 rootdir: /Users/vicky/Documents/Repos/automation-tests/tests/eve/ui, inifile:
 plugins: allure-pytest-2.5.0`
+
+
+##### webdriver agent check command:
+	$ cd <to your webdriver agent path> (/Users/vicky/.appium/appium-xcuitest-driver/node_modules/appium-webdriveragent)
+	$ xcodebuild -project WebDriverAgent.xcodeproj \
+           -scheme WebDriverAgentRunner \
+           -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max' \
+           test
+    没有任何error或者看到模拟器上已经安装WDA，就表示WDA安装成功
+
+    
 
 
