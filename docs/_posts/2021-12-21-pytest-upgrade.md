@@ -32,8 +32,12 @@ test/test_register.py:17
     @pytest.mark.guest_register
 
 {% endhighlight %}
-solution: 
+solution: add a pytest.ini file under ui directory
 
+3. appium set capabilities error
+
+`E       AttributeError: can't set attribute
+/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:140: AttributeError`
 
 
 
