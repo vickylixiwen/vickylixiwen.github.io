@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Glow UI automation rules"
+title:  "UI automation rules"
 date:   2022-02-09 
 categories: allure usage
 ---
