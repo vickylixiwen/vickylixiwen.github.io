@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-31T17:09:56+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Vicky github page</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Java Learning</title><link href="http://localhost:4000/java/2022/05/10/learning-java.html" rel="alternate" type="text/html" title="Java Learning" /><published>2022-05-10T00:00:00+08:00</published><updated>2022-05-10T00:00:00+08:00</updated><id>http://localhost:4000/java/2022/05/10/learning-java</id><content type="html" xml:base="http://localhost:4000/java/2022/05/10/learning-java.html">&lt;h4 id=&quot;函数式接口supplier&quot;&gt;函数式接口–Supplier&lt;/h4&gt;
+&lt;p&gt;这个接口在java.util.function下，Java8后引入。这个接口已经被废弃，被com.google.common.base.Supplier所代替
+这个接口可以使用Lambda表达式来实现。
+Supplier 接口是一个供给型的接口，其实，说白了就是一个容器，可以用来存储数据，然后可以供其他方法使用的这么一个接口&lt;/p&gt;</content><author><name></name></author><category term="Java" /><summary type="html">函数式接口–Supplier 这个接口在java.util.function下，Java8后引入。这个接口已经被废弃，被com.google.common.base.Supplier所代替 这个接口可以使用Lambda表达式来实现。 Supplier 接口是一个供给型的接口，其实，说白了就是一个容器，可以用来存储数据，然后可以供其他方法使用的这么一个接口</summary></entry><entry><title type="html">Kotlin Learning</title><link href="http://localhost:4000/kotlin/2022/04/20/kotlin-learning.html" rel="alternate" type="text/html" title="Kotlin Learning" /><published>2022-04-20T00:00:00+08:00</published><updated>2022-04-20T00:00:00+08:00</updated><id>http://localhost:4000/kotlin/2022/04/20/kotlin-learning</id><content type="html" xml:base="http://localhost:4000/kotlin/2022/04/20/kotlin-learning.html">&lt;h4 id=&quot;kotlin构造函数&quot;&gt;Kotlin构造函数&lt;/h4&gt;
+&lt;p&gt;Kotlin中讲构造方法独立了出来，使用关键字constructor来表示。在Kotlin类中只有一个主构造函数(主构造器)，而辅助构造函数（次级构造器）可以是一个或者多个。
+如果主构造函数没有任何注解或者可见性修饰符，可以省略这个 constructor 关键字。
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class Person(firstName: String) { /*……*/ }&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;主构造函数不能包含任何的代码。初始化的代码可以放到以 init 关键字作为前缀的初始化块（initializer blocks）中。
+注意 Kotlin 并没有 new 关键字
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;val person = Person(&quot;Joe Smith&quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;默认情况下，Kotlin 类是最终（final）的：它们不能被继承。 要使一个类可继承，请用 open 关键字标记它。
+`open class Base(p: Int)// 该类可继承&lt;/p&gt;
+
+&lt;p&gt;class Derived(p: Int) : Base(p)
+`&lt;/p&gt;
+
+&lt;p&gt;Kotlin中as关键字可以用于对象的类型转换&lt;/p&gt;
+
+&lt;h4 id=&quot;kotlin-vs-java&quot;&gt;Kotlin V.S. Java&lt;/h4&gt;
+&lt;p&gt;我们知道，Java中的一切是以class为基础的，都要在class中，但是Kotlin却不是。&lt;/p&gt;
+
+&lt;p&gt;在Kotlin中方法是一等公民，意思就是方法就和类一样，类可以干的事，方法都可以干。&lt;/p&gt;
+
+&lt;p&gt;Kotlin给Java开发者带来最大改变之一就是废弃了static修饰符。与Java不同的是在Kotlin的类中不允许你声明静态成员或方法。相反，你必须向类中添加Companion对象来包装这些静态引用: 差异看起来似乎很小，但是它有一些明显的不同。&lt;/p&gt;
+
+&lt;p&gt;The Unit type is what you return from a function that doesn’t return anything of interest. Such a function is usually performing some kind of side effect. The unit type has only one possible value, which is the Unit object. You use Unit as a return type in Kotlin when you would use void (lowercase v) in Java. &lt;a href=&quot;https://medium.com/stepstone-tech/better-tests-with-androidxs-activityscenario-in-kotlin-part-1-6a6376b713ea&quot;&gt;doc&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;companion-object&quot;&gt;Companion Object&lt;/h4&gt;
+&lt;p&gt;类内部的对象声明可以用 companion 关键字标记
+`
+class MyClass {
+    companion object Factory {
+        fun create(): MyClass = MyClass()
+    }
+}&lt;/p&gt;
+
+&lt;p&gt;val instance = MyClass.create()
+`
+在 JVM 平台，如果使用 @JvmStatic 注解，你可以将伴生对象的成员生成为真正的静态方法和字段。&lt;/p&gt;
+
+&lt;h4 id=&quot;when&quot;&gt;When&lt;/h4&gt;
+&lt;p&gt;when 表达式取代了类 C 语言的 switch 语句。其最简单的形式如下：&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-kotlin&quot; data-lang=&quot;kotlin&quot;&gt;&lt;span class=&quot;nf&quot;&gt;`when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;x == 1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;x == 2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 注意这个块&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;x is neither 1 nor 2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;data-class-classes-whose-main-purpose-is-to-hold-data&quot;&gt;Data Class: classes whose main purpose is to hold data&lt;/h5&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data class User(val name: String, val age: Int)&lt;/code&gt;&lt;/p&gt;</content><author><name></name></author><category term="kotlin" /><summary type="html">Kotlin构造函数 Kotlin中讲构造方法独立了出来，使用关键字constructor来表示。在Kotlin类中只有一个主构造函数(主构造器)，而辅助构造函数（次级构造器）可以是一个或者多个。 如果主构造函数没有任何注解或者可见性修饰符，可以省略这个 constructor 关键字。 class Person(firstName: String) { /*……*/ }</summary></entry><entry><title type="html">Android UT Practise</title><link href="http://localhost:4000/unit/test/2022/04/14/android-ut-practise.html" rel="alternate" type="text/html" title="Android UT Practise" /><published>2022-04-14T00:00:00+08:00</published><updated>2022-04-14T00:00:00+08:00</updated><id>http://localhost:4000/unit/test/2022/04/14/android-ut-practise</id><content type="html" xml:base="http://localhost:4000/unit/test/2022/04/14/android-ut-practise.html">&lt;h4 id=&quot;单元测试的分类&quot;&gt;单元测试的分类&lt;/h4&gt;
+&lt;p&gt;本地测试(Local tests): 只在本地机器JVM上运行，以最小化执行时间，这种单元测试不依赖于Android框架，或者即使有依赖，也很方便使用模拟框架来模拟依赖，以达到隔离Android依赖的目的，模拟框架如google推荐的Mockito；&lt;/p&gt;
+
+&lt;p&gt;仪器化测试(Instrumented tests): 在真机或模拟器上运行的单元测试，由于需要跑到设备上，比较慢，这些测试可以访问仪器（Android系统）信息&lt;/p&gt;
+
+&lt;p&gt;app/src
+     ├── androidTestjava (仪器化单元测试、UI测试)
+     ├── main/java (业务代码)
+     └── test/java  (本地单元测试)&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-run-the-test&quot;&gt;How to run the test&lt;/h4&gt;
+&lt;p&gt;Run your local unit tests via Gradle with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gradlew connectedCheck&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;Activity testing
+以前，一般都是用Android Test Support Library下的ActivityTestRule(或者Robolectric里的ActivityController)来测试activity的生命周期。随着AndroidX Test library的到来，ActivityScenario的API已经开始取代ActivityTestRule。&lt;a href=&quot;https://medium.com/stepstone-tech/better-tests-with-androidxs-activityscenario-in-kotlin-part-1-6a6376b713ea&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;activityscenariorule&quot;&gt;ActivityScenarioRule&lt;/h4&gt;
+
+&lt;h4 id=&quot;添加依赖&quot;&gt;添加依赖&lt;/h4&gt;
+&lt;p&gt;dependencies {
+  // Required – JUnit 4 framework
+  testImplementation “junit:junit:$jUnitVersion”
+  // Optional – Robolectric environment
+  testImplementation “androidx.test:core:$androidXTestVersion”
+  // Optional – Mockito framework
+  testImplementation “org.mockito:mockito-core:$mockitoVersion”
+  // Optional – mockito-kotlin
+  testImplementation “org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion”
+  // Optional – Mockk framework
+  testImplementation “io.mockk:mockk:$mockkVersion”&lt;/p&gt;
+
+&lt;p&gt;androidTestImplementation “androidx.test:runner:$androidXTestVersion”
+  androidTestImplementation “androidx.test:rules:$androidXTestVersion”
+  // Optional – UI testing with Espresso
+  androidTestImplementation “androidx.test.espresso:espresso-core:$espressoVersion”
+  // Optional – UI testing with UI Automator
+  androidTestImplementation “androidx.test.uiautomator:uiautomator:$uiAutomatorVersion”
+  // Optional – UI testing with Compose
+  androidTestImplementation “androidx.compose.ui:ui-test-junit4:$compose_version”
+}
+Note: testImplementation添加的是local tests的依赖， androidTestImplementation添加的是Instrumented tests的依赖&lt;/p&gt;
+
+&lt;h4 id=&quot;types-of-test-doubles测试替身的种类source-&quot;&gt;Types of test doubles测试替身的种类(source: )&lt;/h4&gt;
+&lt;p&gt;There are various types of test doubles:&lt;/p&gt;
+
+&lt;p&gt;Fake	A test double that has a “working” implementation of the class, but it is implemented in a way that makes it good for tests but unsuitable for production.
+Example: an in-memory database.&lt;/p&gt;
+
+&lt;p&gt;Fakes don’t require a mocking framework and are lightweight. They are preferred.&lt;/p&gt;
+
+&lt;p&gt;Mock	A test double that behaves how you program it to behave and that has expectations about its interactions. Mocks will fail tests if their interactions don’t match the requirements that you define. Mocks are usually created with a mocking framework to achieve all this.
+Example: Verify that a method in a database was called exactly once.&lt;/p&gt;
+
+&lt;p&gt;Stub	A test double that behaves how you program it to behave but doesn’t have expectations about its interactions. Usually created with a mocking framework. Fakes are preferred over stubs for simplicity.
+Dummy	A test double that is passed around but not used, such as if you just need to provide it as a parameter.
+Example: an empty function passed as a click callback.&lt;/p&gt;
+
+&lt;p&gt;Spy	A wrapper over a real object which also keeps track of some additional information, similar to mocks. They are usually avoided for adding complexity. Fakes or mocks are therefore preferred over spies.
+Shadow	Fake used in Robolectric.&lt;/p&gt;
+
+&lt;h4 id=&quot;misc-errors&quot;&gt;Misc errors&lt;/h4&gt;
+&lt;p&gt;Error: The app for your currently selected variant (Unknown output) is not signed. Please specify a signing configuration for this variant (debug)&lt;/p&gt;
+
+&lt;p&gt;Solution: Follow the step below: Build Variants (lower-left corner) &amp;gt; Active Build Variant &amp;gt; change it back to Debug&lt;/p&gt;</content><author><name></name></author><category term="unit" /><category term="test" /><summary type="html">单元测试的分类 本地测试(Local tests): 只在本地机器JVM上运行，以最小化执行时间，这种单元测试不依赖于Android框架，或者即使有依赖，也很方便使用模拟框架来模拟依赖，以达到隔离Android依赖的目的，模拟框架如google推荐的Mockito；</summary></entry><entry><title type="html">UI automation rules</title><link href="http://localhost:4000/allure/usage/2022/02/09/allure-usage.html" rel="alternate" type="text/html" title="UI automation rules" /><published>2022-02-09T00:00:00+08:00</published><updated>2022-02-09T00:00:00+08:00</updated><id>http://localhost:4000/allure/usage/2022/02/09/allure-usage</id><content type="html" xml:base="http://localhost:4000/allure/usage/2022/02/09/allure-usage.html">&lt;h4 id=&quot;rules-for-adding-allure-annotations-in-our-ui-automation-cases&quot;&gt;rules for adding allure annotations in our ui automation cases:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;对每个测试类添加一个story
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@allure.story(&quot;test brand new user basic scenario&quot;)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对每个测试用例添加一个feature
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@allure.feature(&quot;test brand new user register function&quot;)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对每个测试用例中用到的每个步骤添加一个step
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@allure.step(&quot;Step for set name for new user&quot;)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;rules-for-adding-pytest-mark-annotations-in-our-ui-automation-cases&quot;&gt;rules for adding pytest mark annotations in our ui automation cases:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;冒烟测试的用例用smoke表示，smoke后面跟上平台
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@pytest.mark.smoke_android&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@pytest.mark.smoke_ios&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;回归测试的用例用regression表示，regression后面跟上平台
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@pytest.mark.regression_android&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@pytest.mark.regression_ios&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;特定功能的用例用功能名表示
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@pytest.mark.login&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;rules-for-capturing-screenshots&quot;&gt;rules for capturing screenshots:&lt;/h4&gt;
+&lt;p&gt;目前我们有2种截图&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;一种是针对用例的截图, 在用例结束后，会有一个统一的tear down的截图，会存到screenshots/teardown, 如果有失败的用例，会有一个失败的截图存到screenshots/failed并贴到allure report&lt;/li&gt;
+  &lt;li&gt;另一种是针对测试过的页面的截图，主要是为了记录这些页面的历史UI, 会存到screenshots/pages, 对这种类型的截图，需要对应到每个具体的页面，添加截图方法并保存&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;rules-for-asserssion&quot;&gt;rules for asserssion:&lt;/h4&gt;
+&lt;p&gt;在UI上尽量在完成一个action后做一个assert
+对于有data变动的action，也可以通过调用sync方法在server端assert，主要server端的检查只需要在sandbox上检查&lt;/p&gt;</content><author><name></name></author><category term="allure" /><category term="usage" /><summary type="html">rules for adding allure annotations in our ui automation cases: 对每个测试类添加一个story @allure.story(&quot;test brand new user basic scenario&quot;)</summary></entry><entry><title type="html">React + Redux 学习笔记</title><link href="http://localhost:4000/react,/redux/2022/01/13/react-learning.html" rel="alternate" type="text/html" title="React + Redux 学习笔记" /><published>2022-01-13T00:00:00+08:00</published><updated>2022-01-13T00:00:00+08:00</updated><id>http://localhost:4000/react,/redux/2022/01/13/react-learning</id><content type="html" xml:base="http://localhost:4000/react,/redux/2022/01/13/react-learning.html">&lt;h5 id=&quot;记录一下学习react-redux的过程&quot;&gt;记录一下学习React, Redux的过程&lt;/h5&gt;
+
+&lt;p&gt;推荐阅读：&lt;a href=&quot;https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_three_react-redux.html&quot;&gt;React-Redux的用法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Redux is a pattern and library for managing and updating application state, using events called “actions”.&lt;/p&gt;
+
+&lt;p&gt;Redux 的工作流程：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;用户发出 Action&lt;/li&gt;
+  &lt;li&gt;然后，Store 自动调用 Reducer，并且传入两个参数：当前 State 和收到的 Action。 Reducer 会返回新的 State&lt;/li&gt;
+  &lt;li&gt;State 一旦有变化，Store 就会调用监听函数。&lt;/li&gt;
+  &lt;li&gt;listener可以通过store.getState()得到当前状态。如果使用的是 React，这时可以触发重新渲染 View。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Redux三要素：
+store，action，reducer&lt;/p&gt;
+
+&lt;p&gt;A “store” is a container that holds your application’s global state.&lt;/p&gt;
+
+&lt;p&gt;Actions​
+An action is a plain JavaScript object that has a type field. You can think of an action as an event that describes something that happened in the application.&lt;/p&gt;
+
+&lt;p&gt;When an action is dispatched, the store runs the root reducer function, and lets it calculate the new state based on the old state and the action
+Finally, the store notifies subscribers that the state has been updated so the UI can be updated with the new data.&lt;/p&gt;
+
+&lt;p&gt;A reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state: (state, action) =&amp;gt; newState. You can think of a reducer as an event listener which handles events based on the received action (event) type.
+Reducers act like event listeners, and when they hear an action they are interested in, they update the state in response.&lt;/p&gt;
+
+&lt;p&gt;React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
+因为不含有状态，UI 组件又称为”纯组件”，即纯函数一样，纯粹由参数决定它的值。&lt;/p&gt;
+
+&lt;p&gt;React-Redux规定，所有的UI组件都由用户提供，容器组件则是由React-Redux自动生成。也就是说，用户负责视觉层，状态管理则是全部交给它。React-Redux提供connect方法，用于从 UI 组件生成容器组件。connect的意思，就是将这两种组件连起来。&lt;/p&gt;
+
+&lt;p&gt;connect方法接受两个参数：mapStateToProps和mapDispatchToProps。它们定义了UI组件的业务逻辑。前者负责输入逻辑，即将state映射到UI组件的参数（props），后者负责输出逻辑，即将用户对UI组件的操作映射成 Action。connect方法可以省略mapStateToProps参数，那样的话，UI组件就不会订阅Store，就是说Store的更新不会引起UI组件的更新。&lt;/p&gt;
+
+&lt;p&gt;mapStateToProps是一个函数。它的作用就是像它的名字那样，建立一个从（外部的）state对象到（UI组件的）props对象的映射关系。mapStateToProps会订阅 Store，每当state更新的时候，就会自动执行，重新计算 UI 组件的参数，从而触发 UI 组件的重新渲染&lt;/p&gt;
+
+&lt;p&gt;mapDispatchToProps是connect函数的第二个参数，用来建立UI组件的参数到store.dispatch方法的映射。也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-react&quot; data-lang=&quot;react&quot;&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mapStateToProps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mapDispatchToProps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_AppInitializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_AppInitializer&lt;/code&gt;, 这个是个UI组件， &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AppInitializer&lt;/code&gt;这个就是个容器组件&lt;/p&gt;
+
+&lt;p&gt;React-Redux 提供Provider组件，可以让容器组件拿到state。&lt;/p&gt;
+
+&lt;p&gt;createSlice
+The string from the name option is used as the first part of each action type, and the key name of each reducer function is used as the second part. So, the “counter” name + the “increment” reducer function generated an action type of {type: “counter/increment”}&lt;/p&gt;
+
+&lt;p&gt;Selectors are functions that know how to extract specific pieces of information from a store state value.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useSelector&lt;/code&gt;: read the initial data from the store
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useDispatch&lt;/code&gt;: to dispatch the action to update the state in the store&lt;/p&gt;</content><author><name></name></author><category term="react," /><category term="redux" /><summary type="html">记录一下学习React, Redux的过程</summary></entry><entry><title type="html">Typescript学习笔记</title><link href="http://localhost:4000/python/2022/01/12/ts-learning.html" rel="alternate" type="text/html" title="Typescript学习笔记" /><published>2022-01-12T00:00:00+08:00</published><updated>2022-01-12T00:00:00+08:00</updated><id>http://localhost:4000/python/2022/01/12/ts-learning</id><content type="html" xml:base="http://localhost:4000/python/2022/01/12/ts-learning.html">&lt;h5 id=&quot;记录一下学习ts的过程&quot;&gt;记录一下学习TS的过程&lt;/h5&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;声明文件必需以 .d.ts 为后缀&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 ES6 模块系统中，使用 export default 可以导出一个默认值，使用方可以用 import foo from ‘foo’ 而不是 import { foo } from ‘foo’ 来导入这个默认值。
+注意，只有 function、class 和 interface 可以直接默认导出，其他的变量需要先定义出来，再默认导出。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JSX 工作模式：preserve 模式和 react 模式以及 react-native 模式。这三个模式只影响编译策略。preserve 模式会生成代码中会保留 JSX ，以供后续的转换操作使用（比如：Babel），输出的文件是 .jsx 格式的；而 react模式则会直接编译成 React.createElement，在使用前就不需要再进行 JSX 转换了，输出的文件是 .js 格式的；react-native模式相当于preserve，它也保留了所有的JSX，但是输出文件的扩展名是.js&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="python" /><summary type="html">记录一下学习TS的过程</summary></entry><entry><title type="html">Common commands for python</title><link href="http://localhost:4000/python/2022/01/04/common-commands-for-python.html" rel="alternate" type="text/html" title="Common commands for python" /><published>2022-01-04T00:00:00+08:00</published><updated>2022-01-04T00:00:00+08:00</updated><id>http://localhost:4000/python/2022/01/04/common-commands-for-python</id><content type="html" xml:base="http://localhost:4000/python/2022/01/04/common-commands-for-python.html">&lt;h4 id=&quot;记录python常用的commands&quot;&gt;记录Python常用的commands&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装pyenv 和Python version
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ brew install pyenv&lt;/code&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pyenv install 3.6.5&lt;/code&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pyenv global 3.6.5&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装并指定一个虚拟环境&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip install virtualenv&lt;/code&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ mkdir ~/venv &amp;amp;&amp;amp; virtualenv ~/venv/pycharm3.6.5&lt;/code&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ source ~/venv/pycharm3.9.1/bin/activate&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查找具体安装的lib信息&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pip show Appium-Python-Client&lt;/code&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Name: Appium-Python-Client &lt;br /&gt;
+  Version: 0.28 &lt;br /&gt;
+  Summary: Python client for Appium 1.5 &lt;br /&gt;
+  Home-page: http://appium.io/ &lt;br /&gt;
+  Author: Isaac Murchie &lt;br /&gt;
+  Author-email: isaac@saucelabs.com &lt;br /&gt;
+  License: Apache 2.0 &lt;br /&gt;
+  Location: /Users/vicky/venv/pycharm3.6.5/lib/python3.6/site-packages &lt;br /&gt;
+  Requires: selenium &lt;br /&gt;
+  Required-by: &lt;br /&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;list all of the cron jobs 
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ crontab -l&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;edit cron jobs
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ crontab -e&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查看已安装ruby 版本号
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv install --list&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;0 */4 * * *&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;ul&gt;
+              &lt;li&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;command(s)
+^ ^ ^ ^ ^
+| | | | |     allowed values
+| | | | |     ——-
+| | | | —– Day of week (0 - 7) (Sunday=0 or 7)
+| | | ——- Month (1 - 12)
+| | ——— Day of month (1 - 31)
+| ———– Hour (0 - 23)
+————- Minute (0 - 59)&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><summary type="html">记录Python常用的commands</summary></entry><entry><title type="html">Tips for appium Android element locator!</title><link href="http://localhost:4000/appium/2021/12/28/appium-tips.html" rel="alternate" type="text/html" title="Tips for appium Android element locator!" /><published>2021-12-28T00:00:00+08:00</published><updated>2021-12-28T00:00:00+08:00</updated><id>http://localhost:4000/appium/2021/12/28/appium-tips</id><content type="html" xml:base="http://localhost:4000/appium/2021/12/28/appium-tips.html">&lt;h3 id=&quot;除了xpath外android元素的另一种获取方式uiselector&quot;&gt;除了xpath外，Android元素的另一种获取方式：uiSelector&lt;/h3&gt;
+&lt;p&gt;对于一些元素共享一个ID，除了万能的XPATH外，还可以选择使用android的ANDROID_UIAUTOMATOR&lt;/p&gt;
+
+&lt;p&gt;实例：
+&lt;img src=&quot;/assets/android_uiautomator_example1.png&quot; alt=&quot;元素snippet&quot; title=&quot;element snippet&quot; /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;s&quot;&gt;&apos;android_uiautomator,new UiSelector().text(&quot;28 days&quot;)&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;这个元素就属于不太好获取的，可以尝试用ANDROID_UIAUTOMATOR来获取，上面的实例获取的是28 days这个元素&lt;/p&gt;
+
+&lt;p&gt;同样的UIScrollable也是常用的获取方式， 除了下面的例子，还可以参考: &lt;a href=&quot;https://appium.io/docs/en/writing-running-appium/android/uiautomator-uiselector/&quot;&gt;appium-docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;# this function only support for android UiScrollable element
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;scroll_to_element_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;MobileBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ANDROID_UIAUTOMATOR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;&apos;new UiScrollable(new UiSelector().scrollable(true).instance(0))&apos;&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;&apos;.getChildByText(new UiSelector().className(&quot;android.widget.TextView&quot;), &quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;&quot;)&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;获取元素坐标-屏幕坐标的方法&quot;&gt;获取元素坐标, 屏幕坐标的方法：&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;    &lt;span class=&quot;n&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;height&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ele_x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;x&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ele_y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;    &lt;span class=&quot;n&quot;&gt;window_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_window_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;window_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;width&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;window_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;height&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;adb的一些方法&quot;&gt;adb的一些方法：&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;# this is a function only for android
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# to use this function, you need to click the edit text first
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;adb_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_locator_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;element_click_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;element_locator_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;device_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desired_capabilities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;deviceName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;adb_command&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;adb -s %s shell input text %s&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adb_command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;date-picker的几种获取方式及完成所需时间&quot;&gt;date picker的几种获取方式及完成所需时间：&lt;/h3&gt;
+&lt;p&gt;具体环境：(不同环境，耗时可能会有偏差)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Appium v2.0.0-beta.23&lt;/li&gt;
+  &lt;li&gt;uiautomator2@1.73.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;方法1: uiautomator获取所需年份，点击完成，总耗时1秒&lt;/p&gt;
+
+&lt;p&gt;方法2: xpath获取日期picker，点击前一天的日期设置生日日期，总耗时1秒&lt;/p&gt;
+
+&lt;p&gt;方法3: xpath获取月份picker，向下滚动到下一个月份, 总耗时2秒&lt;/p&gt;
+
+&lt;p&gt;方法4: sendKeys， 这个方法已经失效很久&lt;/p&gt;
+
+&lt;p&gt;先通过ID获取所有picker元素， 再根据元素的index具体拿到月份的picker，在把AUG这个值通过sendKey的方法传进去&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;	&lt;span class=&quot;s&quot;&gt;&quot;_birthday_pickers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;id, android:id/numberpicker_input&quot;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;picker_locator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_page_element_locators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;_birthday_pickers&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;platform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pickers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_elements&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;picker_locator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pickers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# sendKeys set month to Aug
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# sendKeys方法封装在了ui_base文件的type_in_value里，具体参考该文件
+&lt;/span&gt;    &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type_in_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pickers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Aug&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;具体实例：
+&lt;img src=&quot;/assets/android_picker_example.png&quot; alt=&quot;Android picker snippet&quot; title=&quot;Android picker snippet&quot; /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;	&lt;span class=&quot;c1&quot;&gt;# 具体元素locator
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;&quot;_birthday_pickers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;id, android:id/numberpicker_input&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;_birthday_year_picker&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;android_uiautomator, new UiSelector().text(&quot;1984&quot;)&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;_birthday_date_picker&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xpath, //android.widget.NumberPicker[2]/android.widget.Button&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;_birthday_month_picker&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xpath, //android.widget.NumberPicker&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# uiautomator获取年的picker，然后点击选取年份
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;uiautomator_t1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# 1640749811
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;year_ele_locator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_page_element_locators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;_birthday_year_picker&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;platform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;year_ele&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year_ele_locator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;uiautomator_t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator_t2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 1640749812
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ui automator selector used %s seconds&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator_t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiautomator_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; 
+    &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;element_click_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year_ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;uiautomator_t3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator_t3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 1640749812
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;click ui automator selector used %s seconds&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator_t3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;# xpath获取日期picker，点击前一天的日期设置生日日期
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# xpath to adjust date to previous date
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;xpath_t1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 1640749812
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;date_picker_locator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_page_element_locators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;_birthday_date_picker&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;platform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;date_picker&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date_picker_locator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xpath_t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath_t2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 1640749812
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xpath selector used %s seconds&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath_t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xpath_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;element_click_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date_picker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;xpath_t3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath_t3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 1640749813
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;click xpath selector used %s seconds&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xpath_t3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xpath_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# xpath获取月份picker，向下滚动到下一个月份
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# mobile swipe
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;swipe_t1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swipe_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 1640749813
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;month_picker_locator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_page_element_locators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;_birthday_month_picker&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;platform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;month_picker&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;month_picker_locator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;swipe_t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swipe_t2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 1640749814
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xpath selector used %s seconds&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swipe_t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;swipe_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute_script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;mobile: scrollGesture&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;elementId&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;month_picker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;direction&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;down&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;percent&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;swipe_t3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swipe_t3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# 1640749815
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xpath selector used %s seconds&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;swipe_t3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;swipe_t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><category term="appium" /><summary type="html">除了xpath外，Android元素的另一种获取方式：uiSelector 对于一些元素共享一个ID，除了万能的XPATH外，还可以选择使用android的ANDROID_UIAUTOMATOR</summary></entry><entry><title type="html">Notes for pytest upgrade!</title><link href="http://localhost:4000/update/2021/12/21/pytest-upgrade.html" rel="alternate" type="text/html" title="Notes for pytest upgrade!" /><published>2021-12-21T00:00:00+08:00</published><updated>2021-12-21T00:00:00+08:00</updated><id>http://localhost:4000/update/2021/12/21/pytest-upgrade</id><content type="html" xml:base="http://localhost:4000/update/2021/12/21/pytest-upgrade.html">&lt;h2 id=&quot;note-在升级前如果你已经有一个可以work的venv请再重新建一个venv来升级确保正常工作不受影响&quot;&gt;NOTE: 在升级前，如果你已经有一个可以work的venv，请再重新建一个venv来升级，确保正常工作不受影响&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;Install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;virtualenv&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;one&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;project&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;virtualenv&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# this should install to  ~/.pyenv/shims/virtualenv
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;venv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;virtualenv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;venv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pycharm3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;6.5&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;venv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pycharm3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;6.5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activate&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;suso&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requirements&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txt&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# make import thirdlibs in pycharm work&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;从-pytest-363-升级到-pytest-625&quot;&gt;从 pytest-3.6.3 升级到 pytest-6.2.5&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;首先遇到了allure-pytest的不兼容问题:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;pluggy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PluginValidationError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unknown&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hook&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;pytest_namespace&apos;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plugin&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;allure_pytest.plugin&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/allure_pytest/plugin.py&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;solution: 升级allure-pytest==2.9.45
+$ pip install ‘allure-pytest==2.9.45’&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;pytest mark warning:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vicky&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Documents&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Repos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;automation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ui&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PytestUnknownMarkWarning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Unknown&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pytest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;guest_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;typo&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;You&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;can&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;custom&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;marks&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;avoid&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;warning&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;see&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pytest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pytest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;guest_register&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;solution: add a pytest.ini file under ui directory&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;appium set capabilities error&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;E       AttributeError: can&apos;t set attribute
+/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:140: AttributeError&lt;/code&gt;&lt;/p&gt;
+
+&lt;!-- 
+Jekyll also offers powerful support for code snippets:
+
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/ --&gt;</content><author><name></name></author><category term="update" /><summary type="html">NOTE: 在升级前，如果你已经有一个可以work的venv，请再重新建一个venv来升级，确保正常工作不受影响 Install virtualenv and create one to hold your project dependencies: pip install virtualenv # this should install to ~/.pyenv/shims/virtualenv mkdir ~/venv &amp;amp;&amp;amp; virtualenv ~/venv/pycharm3.6.5 source ~/venv/pycharm3.6.5/bin/activate pip install -r suso/requirements.txt # make import thirdlibs in pycharm work</summary></entry><entry><title type="html">Notes for Appium upgrade to 2.X!</title><link href="http://localhost:4000/appium/update/2021/12/18/appium-upgrade.html" rel="alternate" type="text/html" title="Notes for Appium upgrade to 2.X!" /><published>2021-12-18T19:03:38+08:00</published><updated>2021-12-18T19:03:38+08:00</updated><id>http://localhost:4000/appium/update/2021/12/18/appium-upgrade</id><content type="html" xml:base="http://localhost:4000/appium/update/2021/12/18/appium-upgrade.html">&lt;h3 id=&quot;this-page-used-to-track-all-the-situations-i-met-during-the-migration-of-appium-for-any-details-please-refer-to-this-doc&quot;&gt;This page used to track all the situations I met during the migration of Appium, for any details, please refer to this &lt;a href=&quot;https://github.com/appium/appium/blob/2.0/docs/en/advanced-concepts/migrating-to-appium-2.0.md&quot;&gt;doc&lt;/a&gt;:&lt;/h3&gt;
+
+&lt;h4 id=&quot;current-version-of-appium&quot;&gt;Current version of appium:&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$ appium –version&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1.22.0&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;开始安装&quot;&gt;开始安装:&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;安装当前最新版本 2.0.0-beta.23
+    &lt;blockquote&gt;
+      &lt;p&gt;$ npm install -g appium@2.0.0-beta.23&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;安装结束后， 检查版本号是否升级到最新已经安装路径
+    &lt;blockquote&gt;
+      &lt;p&gt;$ appium –version (2.0.0-beta.23)&lt;br /&gt;
+$ which appium(/Users/vicky/.nvm/versions/node/v14.16.1/bin/appium)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;安装需要的各种driver， appium2.X和appium1.X的最大区别就在此：appium1.x默认安装所有driver，appium2.x可以选择需要的driver安装，具体说明请参考&lt;a href=&quot;https://github.com/appium/appium/blob/2.0/docs/en/drivers/driver-cli.md&quot;&gt;appium driver cli&lt;/a&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;$ appium driver list (查看所有驱动)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;attempting-to-find-and-install-driver-xcuitest&quot;&gt;Attempting to find and install driver ‘xcuitest’&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	✔ Installing &apos;xcuitest&apos; using NPM install spec &apos;appium-xcuitest-driver&apos;
+	Driver xcuitest@3.59.0 successfully installed
+	- automationName: XCUITest
+	- platformNames: [&quot;iOS&quot;,&quot;tvOS&quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;$ appium driver install xcuitest (安装xcuitest驱动)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;$ appium driver install uiautomator2 (安装uiautomator2驱动，主要用于Android平台)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;$ appium driver install espresso (安装espresso驱动，Android平台下的另一个driver)
+我们目前用的差不多就这几个driver了，如果还需要其他driver的，可以继续安装，目前为止升级安装没有遇到任何问题&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;运行appium2x的过程中具体遇到的问题&quot;&gt;运行appium2.X的过程中具体遇到的问题&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;ERROR: Cannot install -r requirements.txt (line 2) and selenium==3.13.0 because these package versions have conflicting dependencies.
+ root cause: appium2.0支持的是selenium 4.X, 之前我们跑的都是selenium3.X的东西，在appium升级后，selenium也需要升级
+ solution:
+    &lt;blockquote&gt;
+      &lt;p&gt;$ npm install -g selenium-webdriver@4.1.0&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;E       selenium.common.exceptions.WebDriverException: Message: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:97: in __init__
+    super(WebDriver, self).__init__(command_executor, desired_capabilities, browser_profile, proxy, keep_alive)
+/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:268: in __init__
+    self.start_session(capabilities, browser_profile)
+/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:136: in start_session
+    response = self.execute(RemoteCommand.NEW_SESSION, parameters)
+/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:424: in execute
+    self.error_handler.check_response(response)&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root cause: appium2.X的wd/hub已经被移除
+solution: appium2.X server的启动命令中，添加--base-path
+
+&amp;gt; $appium  --base-path /wd/hub
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;E      pluggy._manager.PluginValidationError: unknown hook ‘pytest_namespace’ in plugin 
+ root cause: 升级了pytest到6.2.5 (platform darwin – Python 3.9.1, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+plugins: allure-pytest-2.5.0)
+ solution: 降级到python3.6.5后，(platform darwin – Python 3.6.5, pytest-3.6.3, py-1.8.0, pluggy-0.6.0
+ plugins: cov-2.8.1, celery-4.2.1, allure-pytest-2.5.0)就没有这个问题了，会有一个post专门写&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;cap需要改成dict:
+caps = dict(
+         platformName=’iOS’,
+         platformVersion=iosversion,
+         deviceName=iosdevice,
+         automationName=’XCUITest’,
+         app=ipapath
+         # # ‘noReset’: ‘true’,
+         # ‘noReset’: ‘false’,
+         # ‘keepKeyChains’: ‘true’,
+         # # ‘bundleId’:’com.upwlabs.glowdev’,
+         # # ‘updatedWDABundleId’:’com.test.webdriveragent’,
+         # ‘newCommandTimeout’: 15)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h6 id=&quot;appium-driver的其他命令&quot;&gt;appium driver的其他命令&lt;/h6&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$ appium driver install xcuitest@2.1.2 (安装某个特定版本的xcuitest驱动)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;$ appium driver list –installed(显示所有已安装的驱动)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;$ appium driver uninstall &lt;driverName&gt; (卸载某个驱动)&lt;/driverName&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;$ appium driver install –source=&lt;sourceType&gt; 安装指定source的驱动， 更多信息请参考: [Installing Appium 2.0 and the Driver and Plugins CLI](https://appiumpro.com/editions/122-installing-appium-20-and-the-driver-and-plugins-cli)&lt;/sourceType&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;misc-error&quot;&gt;misc error:&lt;/h5&gt;
+&lt;p&gt;python3.9的venv
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(pycharm3.9.1) vicky@Vickys-MBP ui % pytest --Platform iOS -m smoke5 -s
+zsh: /usr/local/bin/pytest: bad interpreter: /usr/local/opt/python/bin/python3.7: no such file or directory
+============================================================================================================================= test session starts ==============================================================================================================================
+platform darwin -- Python 3.9.1, pytest-3.6.3, py-1.11.0, pluggy-0.6.0
+rootdir: /Users/vicky/Documents/Repos/automation-tests/tests/eve/ui, inifile:
+plugins: allure-pytest-2.5.0&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;webdriver-agent-check-command&quot;&gt;webdriver agent check command:&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd &amp;lt;to your webdriver agent path&amp;gt; (/Users/vicky/.appium/appium-xcuitest-driver/node_modules/appium-webdriveragent)
+$ xcodebuild -project WebDriverAgent.xcodeproj \
+       -scheme WebDriverAgentRunner \
+       -destination &apos;platform=iOS Simulator,name=iPhone 13 Pro Max&apos; \
+       test
+没有任何error或者看到模拟器上已经安装WDA，就表示WDA安装成功
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="appium" /><category term="update" /><summary type="html">This page used to track all the situations I met during the migration of Appium, for any details, please refer to this doc:</summary></entry></feed>

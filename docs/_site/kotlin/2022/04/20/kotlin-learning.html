@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Kotlin Learning | Vicky github page</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Kotlin Learning" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Kotlin构造函数 Kotlin中讲构造方法独立了出来，使用关键字constructor来表示。在Kotlin类中只有一个主构造函数(主构造器)，而辅助构造函数（次级构造器）可以是一个或者多个。 如果主构造函数没有任何注解或者可见性修饰符，可以省略这个 constructor 关键字。 class Person(firstName: String) { /*……*/ }" />
+<meta property="og:description" content="Kotlin构造函数 Kotlin中讲构造方法独立了出来，使用关键字constructor来表示。在Kotlin类中只有一个主构造函数(主构造器)，而辅助构造函数（次级构造器）可以是一个或者多个。 如果主构造函数没有任何注解或者可见性修饰符，可以省略这个 constructor 关键字。 class Person(firstName: String) { /*……*/ }" />
+<link rel="canonical" href="http://localhost:4000/kotlin/2022/04/20/kotlin-learning.html" />
+<meta property="og:url" content="http://localhost:4000/kotlin/2022/04/20/kotlin-learning.html" />
+<meta property="og:site_name" content="Vicky github page" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-20T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Kotlin Learning" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/kotlin/2022/04/20/kotlin-learning.html","headline":"Kotlin Learning","dateModified":"2022-04-20T00:00:00+08:00","datePublished":"2022-04-20T00:00:00+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/kotlin/2022/04/20/kotlin-learning.html"},"description":"Kotlin构造函数 Kotlin中讲构造方法独立了出来，使用关键字constructor来表示。在Kotlin类中只有一个主构造函数(主构造器)，而辅助构造函数（次级构造器）可以是一个或者多个。 如果主构造函数没有任何注解或者可见性修饰符，可以省略这个 constructor 关键字。 class Person(firstName: String) { /*……*/ }","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Vicky github page" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vicky github page</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/appium/">Appium Migration from 1.X to 2.X</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Kotlin Learning</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-04-20T00:00:00+08:00" itemprop="datePublished">Apr 20, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h4 id="kotlin构造函数">Kotlin构造函数</h4>
+<p>Kotlin中讲构造方法独立了出来，使用关键字constructor来表示。在Kotlin类中只有一个主构造函数(主构造器)，而辅助构造函数（次级构造器）可以是一个或者多个。
+如果主构造函数没有任何注解或者可见性修饰符，可以省略这个 constructor 关键字。
+<code class="language-plaintext highlighter-rouge">class Person(firstName: String) { /*……*/ }</code></p>
+
+<p>主构造函数不能包含任何的代码。初始化的代码可以放到以 init 关键字作为前缀的初始化块（initializer blocks）中。
+注意 Kotlin 并没有 new 关键字
+<code class="language-plaintext highlighter-rouge">val person = Person("Joe Smith")</code></p>
+
+<p>默认情况下，Kotlin 类是最终（final）的：它们不能被继承。 要使一个类可继承，请用 open 关键字标记它。
+`open class Base(p: Int)// 该类可继承</p>
+
+<p>class Derived(p: Int) : Base(p)
+`</p>
+
+<p>Kotlin中as关键字可以用于对象的类型转换</p>
+
+<h4 id="kotlin-vs-java">Kotlin V.S. Java</h4>
+<p>我们知道，Java中的一切是以class为基础的，都要在class中，但是Kotlin却不是。</p>
+
+<p>在Kotlin中方法是一等公民，意思就是方法就和类一样，类可以干的事，方法都可以干。</p>
+
+<p>Kotlin给Java开发者带来最大改变之一就是废弃了static修饰符。与Java不同的是在Kotlin的类中不允许你声明静态成员或方法。相反，你必须向类中添加Companion对象来包装这些静态引用: 差异看起来似乎很小，但是它有一些明显的不同。</p>
+
+<p>The Unit type is what you return from a function that doesn’t return anything of interest. Such a function is usually performing some kind of side effect. The unit type has only one possible value, which is the Unit object. You use Unit as a return type in Kotlin when you would use void (lowercase v) in Java. <a href="https://medium.com/stepstone-tech/better-tests-with-androidxs-activityscenario-in-kotlin-part-1-6a6376b713ea">doc</a></p>
+
+<h4 id="companion-object">Companion Object</h4>
+<p>类内部的对象声明可以用 companion 关键字标记
+`
+class MyClass {
+    companion object Factory {
+        fun create(): MyClass = MyClass()
+    }
+}</p>
+
+<p>val instance = MyClass.create()
+`
+在 JVM 平台，如果使用 @JvmStatic 注解，你可以将伴生对象的成员生成为真正的静态方法和字段。</p>
+
+<h4 id="when">When</h4>
+<p>when 表达式取代了类 C 语言的 switch 语句。其最简单的形式如下：</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="nf">`when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="mi">1</span> <span class="p">-&gt;</span> <span class="nf">print</span><span class="p">(</span><span class="s">"x == 1"</span><span class="p">)</span>
+    <span class="mi">2</span> <span class="p">-&gt;</span> <span class="nf">print</span><span class="p">(</span><span class="s">"x == 2"</span><span class="p">)</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="c1">// 注意这个块</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"x is neither 1 nor 2"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="err">`</span></code></pre></figure>
+
+<h5 id="data-class-classes-whose-main-purpose-is-to-hold-data">Data Class: classes whose main purpose is to hold data</h5>
+
+<p><code class="language-plaintext highlighter-rouge">data class User(val name: String, val age: Int)</code></p>
+
+  </div><a class="u-url" href="/kotlin/2022/04/20/kotlin-learning.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Vicky github page</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Vicky github page</li><li><a class="u-email" href="mailto:vickylixiwen@163.com">vickylixiwen@163.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vickylixiwen"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vickylixiwen</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

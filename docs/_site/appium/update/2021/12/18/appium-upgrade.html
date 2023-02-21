@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Notes for Appium upgrade to 2.X! | Vicky github page</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Notes for Appium upgrade to 2.X!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This page used to track all the situations I met during the migration of Appium, for any details, please refer to this doc:" />
+<meta property="og:description" content="This page used to track all the situations I met during the migration of Appium, for any details, please refer to this doc:" />
+<link rel="canonical" href="http://localhost:4000/appium/update/2021/12/18/appium-upgrade.html" />
+<meta property="og:url" content="http://localhost:4000/appium/update/2021/12/18/appium-upgrade.html" />
+<meta property="og:site_name" content="Vicky github page" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-18T19:03:38+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Notes for Appium upgrade to 2.X!" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/appium/update/2021/12/18/appium-upgrade.html","headline":"Notes for Appium upgrade to 2.X!","dateModified":"2021-12-18T19:03:38+08:00","datePublished":"2021-12-18T19:03:38+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/appium/update/2021/12/18/appium-upgrade.html"},"description":"This page used to track all the situations I met during the migration of Appium, for any details, please refer to this doc:","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Vicky github page" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vicky github page</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/appium/">Appium Migration from 1.X to 2.X</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Notes for Appium upgrade to 2.X!</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-12-18T19:03:38+08:00" itemprop="datePublished">Dec 18, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 id="this-page-used-to-track-all-the-situations-i-met-during-the-migration-of-appium-for-any-details-please-refer-to-this-doc">This page used to track all the situations I met during the migration of Appium, for any details, please refer to this <a href="https://github.com/appium/appium/blob/2.0/docs/en/advanced-concepts/migrating-to-appium-2.0.md">doc</a>:</h3>
+
+<h4 id="current-version-of-appium">Current version of appium:</h4>
+<blockquote>
+  <p>$ appium –version</p>
+</blockquote>
+
+<blockquote>
+  <p>1.22.0</p>
+</blockquote>
+
+<h4 id="开始安装">开始安装:</h4>
+<ol>
+  <li>安装当前最新版本 2.0.0-beta.23
+    <blockquote>
+      <p>$ npm install -g appium@2.0.0-beta.23</p>
+    </blockquote>
+  </li>
+  <li>安装结束后， 检查版本号是否升级到最新已经安装路径
+    <blockquote>
+      <p>$ appium –version (2.0.0-beta.23)<br />
+$ which appium(/Users/vicky/.nvm/versions/node/v14.16.1/bin/appium)</p>
+    </blockquote>
+  </li>
+  <li>安装需要的各种driver， appium2.X和appium1.X的最大区别就在此：appium1.x默认安装所有driver，appium2.x可以选择需要的driver安装，具体说明请参考<a href="https://github.com/appium/appium/blob/2.0/docs/en/drivers/driver-cli.md">appium driver cli</a>
+    <blockquote>
+      <p>$ appium driver list (查看所有驱动)</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h5 id="attempting-to-find-and-install-driver-xcuitest">Attempting to find and install driver ‘xcuitest’</h5>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	✔ Installing 'xcuitest' using NPM install spec 'appium-xcuitest-driver'
+	Driver xcuitest@3.59.0 successfully installed
+	- automationName: XCUITest
+	- platformNames: ["iOS","tvOS"]
+</code></pre></div></div>
+
+<blockquote>
+  <p>$ appium driver install xcuitest (安装xcuitest驱动)</p>
+</blockquote>
+
+<blockquote>
+  <p>$ appium driver install uiautomator2 (安装uiautomator2驱动，主要用于Android平台)</p>
+</blockquote>
+
+<blockquote>
+  <p>$ appium driver install espresso (安装espresso驱动，Android平台下的另一个driver)
+我们目前用的差不多就这几个driver了，如果还需要其他driver的，可以继续安装，目前为止升级安装没有遇到任何问题</p>
+</blockquote>
+
+<h3 id="运行appium2x的过程中具体遇到的问题">运行appium2.X的过程中具体遇到的问题</h3>
+<ol>
+  <li>ERROR: Cannot install -r requirements.txt (line 2) and selenium==3.13.0 because these package versions have conflicting dependencies.
+ root cause: appium2.0支持的是selenium 4.X, 之前我们跑的都是selenium3.X的东西，在appium升级后，selenium也需要升级
+ solution:
+    <blockquote>
+      <p>$ npm install -g selenium-webdriver@4.1.0</p>
+    </blockquote>
+  </li>
+  <li>E       selenium.common.exceptions.WebDriverException: Message: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:97: in __init__
+    super(WebDriver, self).__init__(command_executor, desired_capabilities, browser_profile, proxy, keep_alive)
+/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:268: in __init__
+    self.start_session(capabilities, browser_profile)
+/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:136: in start_session
+    response = self.execute(RemoteCommand.NEW_SESSION, parameters)
+/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:424: in execute
+    self.error_handler.check_response(response)</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root cause: appium2.X的wd/hub已经被移除
+solution: appium2.X server的启动命令中，添加--base-path
+
+&gt; $appium  --base-path /wd/hub
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>E      pluggy._manager.PluginValidationError: unknown hook ‘pytest_namespace’ in plugin 
+ root cause: 升级了pytest到6.2.5 (platform darwin – Python 3.9.1, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+plugins: allure-pytest-2.5.0)
+ solution: 降级到python3.6.5后，(platform darwin – Python 3.6.5, pytest-3.6.3, py-1.8.0, pluggy-0.6.0
+ plugins: cov-2.8.1, celery-4.2.1, allure-pytest-2.5.0)就没有这个问题了，会有一个post专门写</p>
+  </li>
+  <li>
+    <p>cap需要改成dict:
+caps = dict(
+         platformName=’iOS’,
+         platformVersion=iosversion,
+         deviceName=iosdevice,
+         automationName=’XCUITest’,
+         app=ipapath
+         # # ‘noReset’: ‘true’,
+         # ‘noReset’: ‘false’,
+         # ‘keepKeyChains’: ‘true’,
+         # # ‘bundleId’:’com.upwlabs.glowdev’,
+         # # ‘updatedWDABundleId’:’com.test.webdriveragent’,
+         # ‘newCommandTimeout’: 15)</p>
+  </li>
+</ol>
+
+<h6 id="appium-driver的其他命令">appium driver的其他命令</h6>
+<blockquote>
+  <p>$ appium driver install xcuitest@2.1.2 (安装某个特定版本的xcuitest驱动)</p>
+</blockquote>
+
+<blockquote>
+  <p>$ appium driver list –installed(显示所有已安装的驱动)</p>
+</blockquote>
+
+<blockquote>
+  <p>$ appium driver uninstall <driverName> (卸载某个驱动)</driverName></p>
+</blockquote>
+
+<blockquote>
+  <p>$ appium driver install –source=<sourceType> 安装指定source的驱动， 更多信息请参考: [Installing Appium 2.0 and the Driver and Plugins CLI](https://appiumpro.com/editions/122-installing-appium-20-and-the-driver-and-plugins-cli)</sourceType></p>
+</blockquote>
+
+<h5 id="misc-error">misc error:</h5>
+<p>python3.9的venv
+<code class="language-plaintext highlighter-rouge">(pycharm3.9.1) vicky@Vickys-MBP ui % pytest --Platform iOS -m smoke5 -s
+zsh: /usr/local/bin/pytest: bad interpreter: /usr/local/opt/python/bin/python3.7: no such file or directory
+============================================================================================================================= test session starts ==============================================================================================================================
+platform darwin -- Python 3.9.1, pytest-3.6.3, py-1.11.0, pluggy-0.6.0
+rootdir: /Users/vicky/Documents/Repos/automation-tests/tests/eve/ui, inifile:
+plugins: allure-pytest-2.5.0</code></p>
+
+<h5 id="webdriver-agent-check-command">webdriver agent check command:</h5>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd &lt;to your webdriver agent path&gt; (/Users/vicky/.appium/appium-xcuitest-driver/node_modules/appium-webdriveragent)
+$ xcodebuild -project WebDriverAgent.xcodeproj \
+       -scheme WebDriverAgentRunner \
+       -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max' \
+       test
+没有任何error或者看到模拟器上已经安装WDA，就表示WDA安装成功
+</code></pre></div></div>
+
+
+  </div><a class="u-url" href="/appium/update/2021/12/18/appium-upgrade.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Vicky github page</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Vicky github page</li><li><a class="u-email" href="mailto:vickylixiwen@163.com">vickylixiwen@163.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vickylixiwen"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vickylixiwen</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
