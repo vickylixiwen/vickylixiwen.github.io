@@ -31,6 +31,7 @@ When an action is dispatched, the store runs the root reducer function, and lets
 Finally, the store notifies subscribers that the state has been updated so the UI can be updated with the new data.
 
 A reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state: (state, action) => newState. You can think of a reducer as an event listener which handles events based on the received action (event) type.
+Reducers act like event listeners, and when they hear an action they are interested in, they update the state in response.
 
 
 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
@@ -52,3 +53,15 @@ const AppInitializer = connect(mapStateToProps, mapDispatchToProps)(_AppInitiali
 
 
 React-Redux 提供Provider组件，可以让容器组件拿到state。
+
+
+createSlice
+The string from the name option is used as the first part of each action type, and the key name of each reducer function is used as the second part. So, the "counter" name + the "increment" reducer function generated an action type of {type: "counter/increment"}
+
+Selectors are functions that know how to extract specific pieces of information from a store state value.
+
+
+`useSelector`: read the initial data from the store
+`useDispatch`: to dispatch the action to update the state in the store
+
+

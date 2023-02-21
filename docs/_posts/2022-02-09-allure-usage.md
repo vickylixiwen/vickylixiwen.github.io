@@ -31,6 +31,16 @@ categories: allure usage
 
 
 
+#### rules for capturing screenshots:
+目前我们有2种截图
+- 一种是针对用例的截图, 在用例结束后，会有一个统一的tear down的截图，会存到screenshots/teardown, 如果有失败的用例，会有一个失败的截图存到screenshots/failed并贴到allure report
+- 另一种是针对测试过的页面的截图，主要是为了记录这些页面的历史UI, 会存到screenshots/pages, 对这种类型的截图，需要对应到每个具体的页面，添加截图方法并保存
+
+
+#### rules for asserssion:
+在UI上尽量在完成一个action后做一个assert
+对于有data变动的action，也可以通过调用sync方法在server端assert，主要server端的检查只需要在sandbox上检查
+
 
 
 

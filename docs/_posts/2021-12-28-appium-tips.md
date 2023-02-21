@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Tips for appium element locator!"
+title:  "Tips for appium Android element locator!"
 categories: appium
 ---
 
-### Android元素的另一种获取方式：uiSelector
+### 除了xpath外，Android元素的另一种获取方式：uiSelector
 对于一些元素共享一个ID，除了万能的XPATH外，还可以选择使用android的ANDROID_UIAUTOMATOR
 
 
