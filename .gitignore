@@ -1,9 +1,10 @@
-*DS_Store
+*.DS_Store
+docs/.DS_Store
+docs/_posts/.DS_Store
+docs/_site/.DS_Store
 
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-_posts
-.glow*
+docs/_site/.sass-cache
+docs/_site/.jekyll-cache
+docs/_site/.jekyll-metadata
+docs/_posts/.glow*
 vendor
