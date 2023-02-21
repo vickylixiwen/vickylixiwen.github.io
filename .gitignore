@@ -1,14 +1,9 @@
-### OSX ###
-.DS_Store
+*DS_Store
 
-
-
-
-### Python ###
-# Byte-compiled / optimized / DLL files
-__pycache__/
-.pytest_cache/
-*.py[cod]
-
-
-
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+_posts
+.glow*
+vendor
