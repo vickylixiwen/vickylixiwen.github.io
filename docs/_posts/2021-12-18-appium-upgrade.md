@@ -114,6 +114,12 @@ plugins: allure-pytest-2.5.0`
            test
     没有任何error或者看到模拟器上已经安装WDA，就表示WDA安装成功
 
-    
+
+#### WDA Setup
+WebDriverAgent source is automatically downloaded as part of XCUITest driver package. appium driver install xcuitest installes the module in $APPIUM_HOME/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent. APPIUM_HOME is ~/.appium by default. [More Docs](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/wda-custom-server.md)
+
+#### WDA errors:
+`~/.appium/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgentLib/Categories/XCUIElementQuery+FBHelpers.h:11:9: fatal error: 'FBXCElementSnapshot.h' file not found`
+resolution: upgrade xcuidriver, won't fix, need to goto appium/WebDriverAgent repo to pull the latest code and then replace the old ones 
 
 

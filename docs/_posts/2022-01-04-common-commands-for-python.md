@@ -66,3 +66,10 @@ categories: python
 | | --------- Day of month (1 - 31)
 | ----------- Hour (0 - 23)
 ------------- Minute (0 - 59)
+
+
+
+#### NVM useful commands
+1. nvm install $version (nvm install 16.13.0)
+2. nvm ls --check all installed version
+3. nvm use 16.13.0 --switch version of node
