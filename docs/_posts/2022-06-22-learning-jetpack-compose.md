@@ -19,12 +19,12 @@ Initial composition: creation of a Composition by running composables the first 
 
 Recomposition: re-running composables to update the Composition when data changes.
 
-Semantics: UI tests in Compose use semantics to interact with the UI hierarchy. Semantics, as the name implies, give meaning to a piece of UI.
+Semantics: UI tests in Compose use semantics to interact with the UI hierarchy. Semantics,   as the name implies,   give meaning to a piece of UI.
 
-remember: Composable functions can use the remember API to store an object in memory. A value computed by remember is stored in the Composition during initial composition, and the stored value is returned during recomposition. remember can be used to store both mutable and immutable objects.
+remember: Composable functions can use the remember API to store an object in memory. A value computed by remember is stored in the Composition during initial composition,   and the stored value is returned during recomposition. remember can be used to store both mutable and immutable objects.
 
 #### Preview
-主要用于在split/design窗口看预览图, 找到带有@Preview annotation的方法， 如下图：
+主要用于在split/design窗口看预览图,   找到带有@Preview annotation的方法， 如下图：
 ![元素snippet](/assets/compose_preview.png "compose preview")
 
 {% highlight kotlin %}
@@ -39,7 +39,7 @@ fun UserInfo(@PreviewParameter(SampleUserProvider::class) user:User) {
 - 安装dependency:
 `// Test rules and transitive dependencies:
 androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
-// Needed for createComposeRule, but not createAndroidComposeRule:
+// Needed for createComposeRule,   but not createAndroidComposeRule:
 debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")`
 
 - 获取Rule
@@ -54,8 +54,8 @@ debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")`
 {% highlight kotlin %}
         composeTestRule.setContent {
         RallyTopAppBar(
-            allScreens = allScreens,
-            onTabSelected = { },
+            allScreens = allScreens,  
+            onTabSelected = { },  
             currentScreen = RallyScreen.Accounts
         )
     }
@@ -68,7 +68,7 @@ debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")`
 {% endhighlight %}
 
 `打印出来看到的就是这样的一个semantics tree
-        |-Node #3 at (l=42.0, t=105.0, r=105.0, b=168.0)px
+        |-Node #3 at (l=42.0,   t=105.0,   r=105.0,   b=168.0)px
         | Role = 'Tab'
         | Selected = 'false'
         | StateDescription = 'Not selected'
@@ -85,7 +85,7 @@ debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")`
 {% endhighlight %}
 
 - SemanticsMatcher:
-当没法直接使用onNodeWithText, onNodeWithContentDescription时，可能需要使用SemanticsMatcher
+当没法直接使用onNodeWithText,   onNodeWithContentDescription时，可能需要使用SemanticsMatcher
 
 
 - 通过gradlew运行测试
@@ -94,4 +94,4 @@ debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")`
 
 #### 我踩过的坑
 - API target：尽量使用新一点的version，至少在Android 9 上跑起来是会报错的
-我曾经在Android9上测试composeTestRule, 会一直fail，后来尝试在Android 10， 11， 12 的模拟器上测试，就能顺利跑通，所以在选用device的时候一定要注意device的version，太老的version应该是不能跑composeTestRule的
+我曾经在Android9上测试composeTestRule,   会一直fail，后来尝试在Android 10， 11， 12 的模拟器上测试，就能顺利跑通，所以在选用device的时候一定要注意device的version，太老的version应该是不能跑composeTestRule的

@@ -2,13 +2,13 @@
 layout: post
 title:  "Editing parameter to preview chart"
 date:   2022-06-22 
-categories: Compose, Preview
+categories: Compose,   Preview
 
 ---
 
 
 #### Preview Cycle Length
-preview cycle length卡片可能会用到的3个文件：`./compose/CycleLengthCard.kt`, `./CycleAnalysisViewModel.kt`
+preview cycle length卡片可能会用到的3个文件：`./compose/CycleLengthCard.kt`,   `./CycleAnalysisViewModel.kt`
 
 
 
@@ -24,7 +24,11 @@ https://www.anycodings.com/1questions/5036411/android-build-error-androidmanifes
 
 
 #### Misc for Baby
-for baby, please change the Build Variant from googleDebug to googleBeta
+for baby,   please change the Build Variant from googleDebug to googleBeta
 ![build variant snippet](/assets/baby_build_variant.png "baby build variant snippet")
 
  testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+
+
+ #### how to run
+ 

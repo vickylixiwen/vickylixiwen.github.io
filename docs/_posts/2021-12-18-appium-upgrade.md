@@ -5,7 +5,7 @@ date:   2021-12-18 19:03:38 +0800
 categories: appium update
 ---
 
-### This page used to track all the situations I met during the migration of Appium, for any details, please refer to this [doc](https://github.com/appium/appium/blob/2.0/docs/en/advanced-concepts/migrating-to-appium-2.0.md): 
+### This page used to track all the situations I met during the migration of Appium,   for any details,   please refer to this [doc](https://github.com/appium/appium/blob/2.0/docs/en/advanced-concepts/migrating-to-appium-2.0.md): 
 
 #### Current version of appium: 
 > $ appium --version
@@ -25,7 +25,7 @@ categories: appium update
 		✔ Installing 'xcuitest' using NPM install spec 'appium-xcuitest-driver'
 		Driver xcuitest@3.59.0 successfully installed
 		- automationName: XCUITest
-		- platformNames: ["iOS","tvOS"]
+		- platformNames: ["iOS",  "tvOS"]
 
 > $ appium driver install xcuitest (安装xcuitest驱动)
 
@@ -37,18 +37,18 @@ categories: appium update
 
 ### 运行appium2.X的过程中具体遇到的问题
 1. ERROR: Cannot install -r requirements.txt (line 2) and selenium==3.13.0 because these package versions have conflicting dependencies.
-	root cause: appium2.0支持的是selenium 4.X, 之前我们跑的都是selenium3.X的东西，在appium升级后，selenium也需要升级
+	root cause: appium2.0支持的是selenium 4.X,   之前我们跑的都是selenium3.X的东西，在appium升级后，selenium也需要升级
 	solution: 
 	> $ npm install -g selenium-webdriver@4.1.0
 
-2. E       selenium.common.exceptions.WebDriverException: Message: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource
+2. E       selenium.common.exceptions.WebDriverException: Message: The requested resource could not be found,   or a request was received using an HTTP method that is not supported by the mapped resource
 
 `/Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:97: in __init__
-    super(WebDriver, self).__init__(command_executor, desired_capabilities, browser_profile, proxy, keep_alive)
+    super(WebDriver,   self).__init__(command_executor,   desired_capabilities,   browser_profile,   proxy,   keep_alive)
 /Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:268: in __init__
-    self.start_session(capabilities, browser_profile)
+    self.start_session(capabilities,   browser_profile)
 /Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/appium/webdriver/webdriver.py:136: in start_session
-    response = self.execute(RemoteCommand.NEW_SESSION, parameters)
+    response = self.execute(RemoteCommand.NEW_SESSION,   parameters)
 /Users/vicky/venv/pycharm3.9.1/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:424: in execute
     self.error_handler.check_response(response)`
 
@@ -58,25 +58,25 @@ categories: appium update
     > $appium  --base-path /wd/hub
 
 3. E      pluggy._manager.PluginValidationError: unknown hook 'pytest_namespace' in plugin 
-	root cause: 升级了pytest到6.2.5 (platform darwin -- Python 3.9.1, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+	root cause: 升级了pytest到6.2.5 (platform darwin -- Python 3.9.1,   pytest-6.2.5,   py-1.11.0,   pluggy-1.0.0
 plugins: allure-pytest-2.5.0)
-	solution: 降级到python3.6.5后，(platform darwin -- Python 3.6.5, pytest-3.6.3, py-1.8.0, pluggy-0.6.0
-	plugins: cov-2.8.1, celery-4.2.1, allure-pytest-2.5.0)就没有这个问题了，会有一个post专门写
+	solution: 降级到python3.6.5后，(platform darwin -- Python 3.6.5,   pytest-3.6.3,   py-1.8.0,   pluggy-0.6.0
+	plugins: cov-2.8.1,   celery-4.2.1,   allure-pytest-2.5.0)就没有这个问题了，会有一个post专门写
 
 
 
 4. cap需要改成dict:
 caps = dict(
-            platformName='iOS',
-            platformVersion=iosversion,
-            deviceName=iosdevice,
-            automationName='XCUITest',
+            platformName='iOS',  
+            platformVersion=iosversion,  
+            deviceName=iosdevice,  
+            automationName='XCUITest',  
             app=ipapath
-            # # 'noReset': 'true',
-            # 'noReset': 'false',
-            # 'keepKeyChains': 'true',
-            # # 'bundleId':'com.upwlabs.glowdev',
-            # # 'updatedWDABundleId':'com.test.webdriveragent',
+            # # 'noReset': 'true',  
+            # 'noReset': 'false',  
+            # 'keepKeyChains': 'true',  
+            # # 'bundleId':'com.upwlabs.glowdev',  
+            # # 'updatedWDABundleId':'com.test.webdriveragent',  
             # 'newCommandTimeout': 15)
 
 
@@ -101,8 +101,8 @@ python3.9的venv
 `(pycharm3.9.1) vicky@Vickys-MBP ui % pytest --Platform iOS -m smoke5 -s
 zsh: /usr/local/bin/pytest: bad interpreter: /usr/local/opt/python/bin/python3.7: no such file or directory
 ============================================================================================================================= test session starts ==============================================================================================================================
-platform darwin -- Python 3.9.1, pytest-3.6.3, py-1.11.0, pluggy-0.6.0
-rootdir: /Users/vicky/Documents/Repos/automation-tests/tests/eve/ui, inifile:
+platform darwin -- Python 3.9.1,   pytest-3.6.3,   py-1.11.0,   pluggy-0.6.0
+rootdir: /Users/vicky/Documents/Repos/automation-tests/tests/eve/ui,   inifile:
 plugins: allure-pytest-2.5.0`
 
 
@@ -110,10 +110,16 @@ plugins: allure-pytest-2.5.0`
 	$ cd <to your webdriver agent path> (/Users/vicky/.appium/appium-xcuitest-driver/node_modules/appium-webdriveragent)
 	$ xcodebuild -project WebDriverAgent.xcodeproj \
            -scheme WebDriverAgentRunner \
-           -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max' \
+           -destination 'platform=iOS Simulator,  name=iPhone 13 Pro Max' \
            test
     没有任何error或者看到模拟器上已经安装WDA，就表示WDA安装成功
 
-    
+
+#### WDA Setup
+WebDriverAgent source is automatically downloaded as part of XCUITest driver package. appium driver install xcuitest installes the module in $APPIUM_HOME/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent. APPIUM_HOME is ~/.appium by default. [More Docs](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/wda-custom-server.md)
+
+#### WDA errors:
+`~/.appium/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgentLib/Categories/XCUIElementQuery+FBHelpers.h:11:9: fatal error: 'FBXCElementSnapshot.h' file not found`
+resolution: upgrade xcuidriver,   won't fix,   need to goto appium/WebDriverAgent repo to pull the latest code and then replace the old ones 
 
 
