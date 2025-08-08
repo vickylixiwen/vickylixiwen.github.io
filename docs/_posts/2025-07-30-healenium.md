@@ -29,7 +29,7 @@ docker-compose, 这个方法是老板docker才使用的命令，新版的话，�
 
 *NOTE!!!: 注意*，如果appium server 里带了bath path参数的,千万要根据自己appium的版本来决定到底要不要带这个参数，appium client与server间的联系只需要各自都加上/wd/hub就能解决版本的不一致，但是这个workaround对于healenium完全不适用，如果错误使用了带bath path参数的server，那就会跟我一样踩坑，会遇到这样的error：`Init Session: {"status":9,"value":{"error":"unknown command","message":"The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource","stacktrace":""}}`。 所以，正确的appium server 配置是如果版本号是2.0的，不需要配/wd/hub, 如果是1.0的就一定要配上。
 
-#### &#x20;踩到的坑
+#### 踩到的坑
 
 *   `column "version" of relation "report" does not exist` - 检查了healnium里明确image的版本是最新的，而且在源代码里的建表的确是有version字段的, 检查postgres数据库里report表里的确没有version字段, 不是很确定啥原因，反正手工给表加上version字段后就能正常运行了。
 
