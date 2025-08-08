@@ -62,7 +62,10 @@ docker-compose, 这个方法是老板docker才使用的命令，新版的话，�
 
 #### 运行后看到的结果：
 
-一旦有脚本可以跑起来，跑完后就会直接插入到report表，比较不确定的是看到的结果不是case failed、pass的结果，而是发现某个元素的locator failed的结果
+跑完测试后，可以通过<http://localhost:7878/healenium/report/>来查看具体结果
+
+对于有些会动态变化的UI元素，最好是在<http://localhost:7878/healenium/selectors/>页面直接将healing enable直接关闭
+
 ![Healing Report例图](/assets/healenium_report.png)
 ![Selector例图](/assets/healenium_selector.png)
 
